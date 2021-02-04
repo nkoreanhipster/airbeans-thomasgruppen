@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <main class="bg-pink is-fullsize">
     <i>/menu</i>
     <ul v-for="(item, index) in getMenuItems" :key="index">
       <li>
@@ -7,7 +7,7 @@
         <span>{{ item }}</span>
       </li>
     </ul>
-  </section>
+  </main>
 </template>
 
 <script>

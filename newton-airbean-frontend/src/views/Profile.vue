@@ -58,19 +58,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal {
-  background: #000000ab;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  visibility: hidden;
-  transition: all 1250ms ease-in-out;
-  opacity: 0;
-}
-.modal.open {
-  visibility: visible;
-  opacity: 1;
-}
+
 </style>
