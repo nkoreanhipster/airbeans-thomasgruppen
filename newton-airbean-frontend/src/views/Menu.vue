@@ -2,25 +2,31 @@
   <section>
     <i>/menu</i>
     <ul v-for="(item, index) in getMenuItems" :key="index">
-      <li>{{ item }}</li>
+      <li>
+        <button @click="addToCart(item)">+</button>
+        <span>{{ item }}</span>
+      </li>
     </ul>
   </section>
 </template>
 
 <script>
 export default {
-  data(){
-    return {
-
+  data() {
+    return {};
+  },
+  computed: {
+    getMenuItems() {
+      return this.$store.getters.getMenuItems;
+    },
+  },
+  methods:{
+    addToCart(item){
+      this.$store.commit("assToCart", item);
     }
   },
-  computed:{
-    getMenuItems(){
-      return this.$store.state.menuItems
-    }
-  },
-  mounted(){
-      this.$store.commit("loadMenu");
+  async created() {
+    this.$store.commit("loadMenu");
   },
 };
 </script>
