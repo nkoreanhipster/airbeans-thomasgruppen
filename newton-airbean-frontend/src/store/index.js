@@ -13,7 +13,12 @@ export default new Vuex.Store({
     state: {
         menuItems: [],
         cart: [],
-        order: {}, // eta & orderNr
+        orders: [], // eta & orderNr
+        user: {
+            name: '',
+            email: ''
+        },
+        message: ''
     },
     mutations: {
         async loadMenu() {
@@ -29,21 +34,46 @@ export default new Vuex.Store({
                 record.quantity += 1
                 state.cart.push(record)
             }
-
+        },
+        SET_USER: (state, newValue) => {
+            state.user = newValue
+        },
+        ADD_ORDER: (state, newValue) => {
+            console.log({ADD_ORDER:newValue})
+            state.orders.push(newValue)
         },
     },
     actions: {
         async postOrder({ commit, state }) {
             let r = await Api.postOrder(state.cart)
-            state.order = r
+            commit('ADD_ORDER', r)
             return r
+        },
+        setUser: ({ commit, state }, newValue) => {
+            commit('SET_USER', newValue)
+            return true
         },
     },
     modules: {
     },
     getters: {
-        order:state => {
-            return state.order
+        getUser:state => {
+            return state.user
+        },
+        isLoggedIn: state => {
+            let loggedInBool = state.user.name !== ''
+                && state.user.email !== ''
+                && state.user.name.length > 0
+                && state.user.email.length > 0;
+            return loggedInBool
+        },
+        // order: state => {
+        //     if (state.orders.length < 1)
+        //         return { eta: -1, orderNr: 'NULL' }
+        //     return state.orders.pop()
+        // },
+        orders: state => {
+            return state.orders
         },
         getMenuItems: state => {
             return state.menuItems
