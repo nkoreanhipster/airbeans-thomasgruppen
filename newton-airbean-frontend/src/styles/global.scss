@@ -2,6 +2,7 @@ $airbean-brown:#2F2926;
 $airbean-green:#0E927D;
 $airbean-pink:#F3E4E1;
 $airbean-orange:#E5674E;
+$airbean-white: #FFFFFF;
 
 @import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -53,7 +54,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 // Base
 #app{
     font-family: PT Serif;
@@ -93,4 +97,61 @@ table {
   .modal.open {
     visibility: visible;
     opacity: 1;
+    }
+  .round-button {
+      width: 60px;
+      height: 60px;
+      background-color: $airbean-brown;
+      color: $airbean-white;
+      box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+      border-radius: 50%;
+      background-image: url("~@/assets/bag.svg");
+      background-repeat:no-repeat;
+      background-position: center;
+      user-select: none;
+  }
+  .red-round-circle {
+    width: 22px;
+    height: 22px;
+    background-color: $airbean-orange;
+    color: $airbean-white;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 50%
+  }
+  .hamburger-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-width: 0;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.02);
+    color: black;
+    background-color: $airbean-white;
+  }
+  .absolute {
+      position: absolute;
+  }
+  .relative {
+      position: relative;
+  }
+  .top-right {
+      top: 0;
+      right: 0;
+  }
+  .center-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+  .navigation {
+      
+  }
+  .navigation .small {
+      display: flex;
+      justify-content: space-between;
+      background-image: url("~@/assets/graphics-header.svg");
+      padding: 16px;
+  }
+  .navigation .large {
+    color: black;
   }
