@@ -5,7 +5,7 @@
         
     </div>
     <!-- Cover modal -->
-    <div class="modal">
+    <div class="">
       <router-link to="/menu">Meny</router-link>
       <router-link to="/about">Vårt kaffe</router-link>
       <router-link to="/profile">Min profil</router-link>
